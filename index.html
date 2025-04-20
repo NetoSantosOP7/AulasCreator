@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Aulas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button class="theme-toggle" id="themeToggle">🌓</button>
+  <h1>📝 Gerador de Aulas</h1>
+  <div class="container">
+
+    <div class="card data-disciplina-card">
+      <div class="form-group">
+        <label for="data">Data da Aula</label>
+        <div class="date-picker-container">
+          <input type="date" id="data" class="date-input">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="disciplina">Disciplina</label>
+        <select id="disciplina" onchange="mostrarBotoesSelecionar();"></select>
+      </div>
+    </div>
+
+    <div id="selecao-habilidade" class="card hidden">
+      <div class="card-header">
+        <div class="card-icon">🎯</div>
+        <h2 class="card-title">Habilidades</h2>
+      </div>
+      <button onclick="mostrarHabilidades()">Selecionar Habilidade</button>
+      <div id="habilidadesContainer" class="hidden select-container">
+        <div id="habilidadesMatematica" class="hidden">
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">🧮 Números e Operações</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA01" value="EF02MA01 – Comparar e ordenar números naturais (até a ordem de centenas) pela compreensão de características do sistema de numeração decimal (valor posicional e função do zero).">
+                <label for="EF02MA01">EF02MA01 – Comparar e ordenar números naturais (até a ordem de centenas) pela compreensão de características do sistema de numeração decimal (valor posicional e função do zero).</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA02" value="EF02MA02 – Fazer estimativas por meio de estratégias diversas a respeito da quantidade de objetos de coleções e registrar o resultado da contagem desses objetos (até 1000 unidades).">
+                <label for="EF02MA02">EF02MA02 – Fazer estimativas por meio de estratégias diversas a respeito da quantidade de objetos de coleções e registrar o resultado da contagem desses objetos (até 1000 unidades).</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA03" value="EF02MA03 – Comparar quantidades de objetos de dois conjuntos, por estimativa e/ou por correspondência (um a um, dois a dois, entre outros), para indicar 'tem mais', 'tem menos' ou 'tem a mesma quantidade', indicando, quando for o caso, quantos a mais e quantos a menos.">
+                <label for="EF02MA03">EF02MA03 – Comparar quantidades de objetos de dois conjuntos, por estimativa e/ou por correspondência (um a um, dois a dois, entre outros), para indicar "tem mais", "tem menos" ou "tem a mesma quantidade", indicando, quando for o caso, quantos a mais e quantos a menos.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA04" value="EF02MA04 – Compor e decompor números naturais de até três ordens, com suporte de material manipulável, por meio de diferentes adições.">
+                <label for="EF02MA04">EF02MA04 – Compor e decompor números naturais de até três ordens, com suporte de material manipulável, por meio de diferentes adições.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA05" value="EF02MA05 – Construir fatos básicos da adição e subtração e utilizá-los no cálculo mental ou escrito.">
+                <label for="EF02MA05">EF02MA05 – Construir fatos básicos da adição e subtração e utilizá-los no cálculo mental ou escrito.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA06" value="EF02MA06 – Resolver e elaborar problemas de adição e de subtração, envolvendo números de até três ordens, com os significados de juntar, acrescentar, separar, retirar, utilizando estratégias pessoais ou convencionais.">
+                <label for="EF02MA06">EF02MA06 – Resolver e elaborar problemas de adição e de subtração, envolvendo números de até três ordens, com os significados de juntar, acrescentar, separar, retirar, utilizando estratégias pessoais ou convencionais.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA07" value="EF02MA07 – Resolver e elaborar problemas de multiplicação (por 2, 3, 4 e 5) com a ideia de adição de parcelas iguais por meio de estratégias e formas de registro pessoais, utilizando ou não suporte de imagens e/ou material manipulável.">
+                <label for="EF02MA07">EF02MA07 – Resolver e elaborar problemas de multiplicação (por 2, 3, 4 e 5) com a ideia de adição de parcelas iguais por meio de estratégias e formas de registro pessoais, utilizando ou não suporte de imagens e/ou material manipulável.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA08" value="EF02MA08 – Resolver e elaborar problemas envolvendo dobro, metade, triplo e terça parte, com o suporte de imagens ou material manipulável, utilizando estratégias pessoais.">
+                <label for="EF02MA08">EF02MA08 – Resolver e elaborar problemas envolvendo dobro, metade, triplo e terça parte, com o suporte de imagens ou material manipulável, utilizando estratégias pessoais.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA09" value="EF02MA09 – Construir sequências de números naturais em ordem crescente ou decrescente a partir de um número qualquer, utilizando uma regularidade estabelecida.">
+                <label for="EF02MA09">EF02MA09 – Construir sequências de números naturais em ordem crescente ou decrescente a partir de um número qualquer, utilizando uma regularidade estabelecida.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA10" value="EF02MA10 – Descrever um padrão (ou regularidade) de sequências repetitivas e de sequências recursivas, por meio de palavras, símbolos ou desenhos.">
+                <label for="EF02MA10">EF02MA10 – Descrever um padrão (ou regularidade) de sequências repetitivas e de sequências recursivas, por meio de palavras, símbolos ou desenhos.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA11" value="EF02MA11 – Descrever os elementos ausentes em sequências repetitivas e em sequências recursivas de números naturais, objetos ou figuras.">
+                <label for="EF02MA11">EF02MA11 – Descrever os elementos ausentes em sequências repetitivas e em sequências recursivas de números naturais, objetos ou figuras.</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">📐 Geometria</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA12" value="EF02MA12 – Identificar e registrar, em linguagem verbal ou não verbal, a localização e os deslocamentos de pessoas e de objetos no espaço, considerando mais de um ponto de referência, e indicar as mudanças de direção e de sentido.">
+                <label for="EF02MA12">EF02MA12 – Identificar e registrar, em linguagem verbal ou não verbal, a localização e os deslocamentos de pessoas e de objetos no espaço, considerando mais de um ponto de referência, e indicar as mudanças de direção e de sentido.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA13" value="EF02MA13 – Esboçar roteiros a ser seguidos ou plantas de ambientes familiares, assinalando entradas, saídas e alguns pontos de referência.">
+                <label for="EF02MA13">EF02MA13 – Esboçar roteiros a ser seguidos ou plantas de ambientes familiares, assinalando entradas, saídas e alguns pontos de referência.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA14" value="EF02MA14 – Reconhecer, nomear e comparar figuras geométricas espaciais (cubo, bloco retangular, pirâmide, cone, cilindro e esfera), relacionando-as com objetos do mundo físico.">
+                <label for="EF02MA14">EF02MA14 – Reconhecer, nomear e comparar figuras geométricas espaciais (cubo, bloco retangular, pirâmide, cone, cilindro e esfera), relacionando-as com objetos do mundo físico.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA15" value="EF02MA15 – Reconhecer, comparar e nomear figuras planas (círculo, quadrado, retângulo e triângulo), por meio de características comuns, em desenhos apresentados em diferentes disposições ou em sólidos geométricos.">
+                <label for="EF02MA15">EF02MA15 – Reconhecer, comparar e nomear figuras planas (círculo, quadrado, retângulo e triângulo), por meio de características comuns, em desenhos apresentados em diferentes disposições ou em sólidos geométricos.</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">📏 Grandezas e Medidas</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA16" value="EF02MA16 – Estimar, medir e comparar comprimentos de lados de salas (incluindo contorno) e de polígonos, utilizando unidades de medida não padronizadas e padronizadas (metro, centímetro e milímetro) e instrumentos adequados.">
+                <label for="EF02MA16">EF02MA16 – Estimar, medir e comparar comprimentos de lados de salas (incluindo contorno) e de polígonos, utilizando unidades de medida não padronizadas e padronizadas (metro, centímetro e milímetro) e instrumentos adequados.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA17" value="EF02MA17 – Estimar, medir e comparar capacidade e massa, utilizando estratégias pessoais e unidades de medida não padronizadas ou padronizadas (litro, mililitro, grama e quilograma).">
+                <label for="EF02MA17">EF02MA17 – Estimar, medir e comparar capacidade e massa, utilizando estratégias pessoais e unidades de medida não padronizadas ou padronizadas (litro, mililitro, grama e quilograma).</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA18" value="EF02MA18 – Indicar a duração de intervalos de tempo entre duas datas, como dias da semana e meses do ano, utilizando calendário, para planejamentos e organização de agenda.">
+                <label for="EF02MA18">EF02MA18 – Indicar a duração de intervalos de tempo entre duas datas, como dias da semana e meses do ano, utilizando calendário, para planejamentos e organização de agenda.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA19" value="EF02MA19 – Medir a duração de um intervalo de tempo por meio de relógio digital e registrar o horário do início e do fim do intervalo.">
+                <label for="EF02MA19">EF02MA19 – Medir a duração de um intervalo de tempo por meio de relógio digital e registrar o horário do início e do fim do intervalo.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA20" value="EF02MA20 – Estabelecer a equivalência de valores entre moedas e cédulas do sistema monetário brasileiro para resolver situações cotidianas.">
+                <label for="EF02MA20">EF02MA20 – Estabelecer a equivalência de valores entre moedas e cédulas do sistema monetário brasileiro para resolver situações cotidianas.</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">📊 Probabilidade e Estatística</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA21" value="EF02MA21 – Classificar resultados de eventos cotidianos aleatórios como 'pouco prováveis', 'muito prováveis', 'improváveis' e 'impossíveis'.">
+                <label for="EF02MA21">EF02MA21 – Classificar resultados de eventos cotidianos aleatórios como 'pouco prováveis', 'muito prováveis', 'improváveis' e 'impossíveis'.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA22" value="EF02MA22 – Comparar informações de pesquisas apresentadas por meio de tabelas de dupla entrada e em gráficos de colunas simples ou barras, para melhor compreender aspectos da realidade próxima.">
+                <label for="EF02MA22">EF02MA22 – Comparar informações de pesquisas apresentadas por meio de tabelas de dupla entrada e em gráficos de colunas simples ou barras, para melhor compreender aspectos da realidade próxima.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02MA23" value="EF02MA23 – Realizar pesquisa em universo de até 30 elementos, escolhendo até três variáveis categóricas de seu interesse, organizando os dados coletados em listas, tabelas e gráficos de colunas simples.">
+                <label for="EF02MA23">EF02MA23 – Realizar pesquisa em universo de até 30 elementos, escolhendo até três variáveis categóricas de seu interesse, organizando os dados coletados em listas, tabelas e gráficos de colunas simples.</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="habilidadesPortugues" class="hidden">
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">🧠 Consciência Fonológica e Ortografia</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02LP02" value="EF02LP02 – Segmentar palavras em sílabas e manipular sílabas para formar novas palavras.">
+                <label for="EF02LP02">EF02LP02 – Segmentar palavras em sílabas e manipular sílabas para formar novas palavras.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02LP03" value="EF02LP03 – Ler e escrever palavras com correspondências regulares entre letras e sons, incluindo contextos específicos como 'c' e 'q'.">
+                <label for="EF02LP03">EF02LP03 – Ler e escrever palavras com correspondências regulares entre letras e sons, incluindo contextos específicos como "c" e "q".</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02LP04" value="EF02LP04 – Ler e escrever palavras com diferentes estruturas silábicas, reconhecendo a presença de vogais em todas as sílabas.">
+                <label for="EF02LP04">EF02LP04 – Ler e escrever palavras com diferentes estruturas silábicas, reconhecendo a presença de vogais em todas as sílabas.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02LP05" value="EF02LP05 – Ler e escrever palavras com marcas de nasalidade, como o uso de 'm', 'n' e til (~).">
+                <label for="EF02LP05">EF02LP05 – Ler e escrever palavras com marcas de nasalidade, como o uso de "m", "n" e til (~).</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02LP06" value="EF02LP06 – Compreender o princípio acrofônico relacionado aos nomes das letras do alfabeto.">
+                <label for="EF02LP06">EF02LP06 – Compreender o princípio acrofônico relacionado aos nomes das letras do alfabeto.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02LP07" value="EF02LP07 – Escrever palavras, frases e textos curtos utilizando letras de forma e cursiva.">
+                <label for="EF02LP07">EF02LP07 – Escrever palavras, frases e textos curtos utilizando letras de forma e cursiva.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02LP08" value="EF02LP08 – Segmentar corretamente as palavras ao escrever frases e textos.">
+                <label for="EF02LP08">EF02LP08 – Segmentar corretamente as palavras ao escrever frases e textos.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02LP09" value="EF02LP09 – Utilizar adequadamente sinais de pontuação como ponto final, de interrogação e de exclamação.">
+                <label for="EF02LP09">EF02LP09 – Utilizar adequadamente sinais de pontuação como ponto final, de interrogação e de exclamação.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02LP10" value="EF02LP10 – Identificar sinônimos e formar antônimos com prefixos de negação como 'in-' e 'im-'.">
+                <label for="EF02LP10">EF02LP10 – Identificar sinônimos e formar antônimos com prefixos de negação como "in-" e "im-".</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02LP11" value="EF02LP11 – Formar aumentativos e diminutivos utilizando sufixos como '-ão', '-inho' e '-zinho'.">
+                <label for="EF02LP11">EF02LP11 – Formar aumentativos e diminutivos utilizando sufixos como "-ão", "-inho" e "-zinho".</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">📖 Leitura e Compreensão de Textos</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02LP12" value="EF02LP12 – Ler e compreender cantigas e letras de canções, relacionando sua forma e finalidade.">
+                <label for="EF02LP12">EF02LP12 – Ler e compreender cantigas e letras de canções, relacionando sua forma e finalidade.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02LP17" value="EF02LP17 – Ler e compreender enunciados de tarefas escolares, diagramas, curiosidades, pequenos relatos de experimentos, entrevistas, verbetes de enciclopédia infantil, entre outros gêneros do campo investigativo, considerando a situação comunicativa e o tema/assunto do texto.">
+                <label for="EF02LP17">EF02LP17 – Ler e compreender enunciados de tarefas escolares, diagramas, curiosidades, pequenos relatos de experimentos, entrevistas, verbetes de enciclopédia infantil, entre outros gêneros do campo investigativo, considerando a situação comunicativa e o tema/assunto do texto.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02LP26" value="EF02LP26 – Ler e compreender, com certa autonomia, textos literários de gêneros variados, desenvolvendo o gosto pela leitura.">
+                <label for="EF02LP26">EF02LP26 – Ler e compreender, com certa autonomia, textos literários de gêneros variados, desenvolvendo o gosto pela leitura.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02LP48" value="EF02LP48 – Ouvir, com atenção e interesse, a leitura feita pelo professor, ou ler, de forma autônoma, textos literários, e expressar preferências por gêneros, temas e autores.">
+                <label for="EF02LP48">EF02LP48 – Ouvir, com atenção e interesse, a leitura feita pelo professor, ou ler, de forma autônoma, textos literários, e expressar preferências por gêneros, temas e autores.</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">✍️ Produção Escrita</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02LP13" value="EF02LP13 – Planejar e produzir bilhetes e cartas, em meio impresso e/ou digital, considerando a situação comunicativa e o tema/assunto/finalidade do texto.">
+                <label for="EF02LP13">EF02LP13 – Planejar e produzir bilhetes e cartas, em meio impresso e/ou digital, considerando a situação comunicativa e o tema/assunto/finalidade do texto.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02LP14" value="EF02LP14 – Planejar e produzir pequenos relatos de observação de processos, de fatos, de experiências pessoais, mantendo as características do gênero.">
+                <label for="EF02LP14">EF02LP14 – Planejar e produzir pequenos relatos de observação de processos, de fatos, de experiências pessoais, mantendo as características do gênero.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02LP15" value="EF02LP15 – Cantar cantigas e canções, obedecendo ao ritmo e à melodia.">
+                <label for="EF02LP15">EF02LP15 – Cantar cantigas e canções, obedecendo ao ritmo e à melodia.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02LP16" value="EF02LP16 – Identificar e reproduzir, em bilhetes, recados, avisos, cartas, e-mails, receitas (modo de fazer), relatos (digitais ou impressos), a formatação e diagramação específica de cada um desses gêneros.">
+                <label for="EF02LP16">EF02LP16 – Identificar e reproduzir, em bilhetes, recados, avisos, cartas, e-mails, receitas (modo de fazer), relatos (digitais ou impressos), a formatação e diagramação específica de cada um desses gêneros.</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">🎭 Campo Artístico-Literário</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF12LP05" value="EF12LP05 – Planejar e produzir, em colaboração com os colegas e com a ajuda do professor, (re)contagens de histórias, poemas e outros textos versificados (letras de canção, quadrinhas, cordel), poemas visuais, tiras e histórias em quadrinhos, dentre outros gêneros do campo artístico-literário, considerando a situação comunicativa e a finalidade do texto.">
+                <label for="EF12LP05">EF12LP05 – Planejar e produzir, em colaboração com os colegas e com a ajuda do professor, (re)contagens de histórias, poemas e outros textos versificados (letras de canção, quadrinhas, cordel), poemas visuais, tiras e histórias em quadrinhos, dentre outros gêneros do campo artístico-literário, considerando a situação comunicativa e a finalidade do texto.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF12LP18" value="EF12LP18 – Apreciar poemas e outros textos versificados, observando rimas, sonoridades, jogos de palavras, reconhecendo seu pertencimento ao mundo imaginário e sua dimensão de encantamento, jogo e fruição.">
+                <label for="EF12LP18">EF12LP18 – Apreciar poemas e outros textos versificados, observando rimas, sonoridades, jogos de palavras, reconhecendo seu pertencimento ao mundo imaginário e sua dimensão de encantamento, jogo e fruição.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF12LP19" value="EF12LP19 – Reconhecer, em textos versificados, rimas, sonoridades, jogos de palavras, palavras, expressões, comparações, relacionando-as com sensações e associações.">
+                <label for="EF12LP19">EF12LP19 – Reconhecer, em textos versificados, rimas, sonoridades, jogos de palavras, palavras, expressões, comparações, relacionando-as com sensações e associações.</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">🗣️ Oralidade e Práticas Sociais</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF12LP01" value="EF12LP01 – Ler palavras novas com precisão na decodificação; no caso de palavras de uso frequente, ler globalmente, por memorização.">
+                <label for="EF12LP01">EF12LP01 – Ler palavras novas com precisão na decodificação; no caso de palavras de uso frequente, ler globalmente, por memorização.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF12LP02" value="EF12LP02 – Buscar, selecionar e ler, com a mediação do professor (leitura compartilhada), textos que circulam em meios impressos ou digitais, de acordo com as necessidades e interesses.">
+                <label for="EF12LP02">EF12LP02 – Buscar, selecionar e ler, com a mediação do professor (leitura compartilhada), textos que circulam em meios impressos ou digitais, de acordo com as necessidades e interesses.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF12LP03" value="EF12LP03 – Copiar textos breves, mantendo suas características e voltando para o texto sempre que tiver dúvidas sobre sua distribuição gráfica, espaçamento entre as palavras, escrita das palavras e pontuação.">
+                <label for="EF12LP03">EF12LP03 – Copiar textos breves, mantendo suas características e voltando para o texto sempre que tiver dúvidas sobre sua distribuição gráfica, espaçamento entre as palavras, escrita das palavras e pontuação.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF12LP04" value="EF12LP04 – Ler e compreender, em colaboração com os colegas e com a ajuda do professor ou já com certa autonomia, listas, agendas, calendários, avisos, convites, receitas, instruções de montagem (digitais ou impressos), dentre outros gêneros do campo da vida cotidiana, considerando a situação comunicativa e o tema/assunto do texto e relacionando sua forma de organização à sua finalidade.">
+                <label for="EF12LP04">EF12LP04 – Ler e compreender, em colaboração com os colegas e com a ajuda do professor ou já com certa autonomia, listas, agendas, calendários, avisos, convites, receitas, instruções de montagem (digitais ou impressos), dentre outros gêneros do campo da vida cotidiana, considerando a situação comunicativa e o tema/assunto do texto e relacionando sua forma de organização à sua finalidade.</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="habilidadesCiencias" class="hidden">
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">🌿 Seres Vivos e Ambiente</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02CI04" value="EF02CI04 – Descrever características de plantas e animais (tamanho, forma, cor, fase da vida, local onde se desenvolvem etc.) que fazem parte de seu cotidiano e relacioná-las ao ambiente em que vivem.">
+                <label for="EF02CI04">EF02CI04 – Descrever características de plantas e animais (tamanho, forma, cor, fase da vida, local onde se desenvolvem etc.) que fazem parte de seu cotidiano e relacioná-las ao ambiente em que vivem.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02CI05" value="EF02CI05 – Investigar a importância da água e da luz para a manutenção da vida de plantas em geral.">
+                <label for="EF02CI05">EF02CI05 – Investigar a importância da água e da luz para a manutenção da vida de plantas em geral.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02CI06" value="EF02CI06 – Identificar as principais partes de uma planta (raiz, caule, folhas, flores e frutos), a função desempenhada por cada uma delas e analisar as relações entre as plantas, o ambiente e os demais seres vivos.">
+                <label for="EF02CI06">EF02CI06 – Identificar as principais partes de uma planta (raiz, caule, folhas, flores e frutos), a função desempenhada por cada uma delas e analisar as relações entre as plantas, o ambiente e os demais seres vivos.</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">🔬 Matéria e Energia</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02CI01" value="EF02CI01 – Identificar de que materiais (metais, madeira, vidro etc.) são feitos os objetos do cotidiano, como são utilizados e com quais materiais eram produzidos no passado.">
+                <label for="EF02CI01">EF02CI01 – Identificar de que materiais (metais, madeira, vidro etc.) são feitos os objetos do cotidiano, como são utilizados e com quais materiais eram produzidos no passado.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02CI02" value="EF02CI02 – Propor o uso de diferentes materiais para a construção de objetos de uso cotidiano, considerando propriedades como flexibilidade, dureza, transparência etc.">
+                <label for="EF02CI02">EF02CI02 – Propor o uso de diferentes materiais para a construção de objetos de uso cotidiano, considerando propriedades como flexibilidade, dureza, transparência etc.</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">⚠️ Saúde e Segurança</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02CI03" value="EF02CI03 – Discutir os cuidados necessários à prevenção de acidentes domésticos (objetos cortantes e inflamáveis, eletricidade, produtos de limpeza, medicamentos etc.).">
+                <label for="EF02CI03">EF02CI03 – Discutir os cuidados necessários à prevenção de acidentes domésticos (objetos cortantes e inflamáveis, eletricidade, produtos de limpeza, medicamentos etc.).</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">🌞 Terra e Universo</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02CI07" value="EF02CI07 – Descrever as posições do Sol em diversos horários do dia e associá-las ao tamanho da sombra projetada.">
+                <label for="EF02CI07">EF02CI07 – Descrever as posições do Sol em diversos horários do dia e associá-las ao tamanho da sombra projetada.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02CI08" value="EF02CI08 – Comparar o efeito da radiação solar (aquecimento e reflexão) em diferentes tipos de superfície (água, areia, solo, superfícies escuras, claras e metálicas etc.).">
+                <label for="EF02CI08">EF02CI08 – Comparar o efeito da radiação solar (aquecimento e reflexão) em diferentes tipos de superfície (água, areia, solo, superfícies escuras, claras e metálicas etc.).</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="habilidadesArtes" class="hidden">
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">🎨 Artes Visuais</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF15AR01" value="EF15AR01 – Identificar e apreciar formas distintas das artes visuais tradicionais e contemporâneas, cultivando a percepção, o imaginário, a capacidade de simbolizar e o repertório imagético.">
+                <label for="EF15AR01">EF15AR01 – Identificar e apreciar formas distintas das artes visuais tradicionais e contemporâneas, cultivando a percepção, o imaginário, a capacidade de simbolizar e o repertório imagético.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF15AR02" value="EF15AR02 – Explorar e reconhecer elementos constitutivos das artes visuais (ponto, linha, forma, cor, espaço, movimento etc.).">
+                <label for="EF15AR02">EF15AR02 – Explorar e reconhecer elementos constitutivos das artes visuais (ponto, linha, forma, cor, espaço, movimento etc.).</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF15AR03" value="EF15AR03 – Reconhecer e analisar a influência de distintas matrizes estéticas e culturais das artes visuais nas manifestações artísticas das culturas locais, regionais e nacionais.">
+                <label for="EF15AR03">EF15AR03 – Reconhecer e analisar a influência de distintas matrizes estéticas e culturais das artes visuais nas manifestações artísticas das culturas locais, regionais e nacionais.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF15AR04" value="EF15AR04 – Experimentar diferentes formas de expressão artística (desenho, pintura, colagem, quadrinhos, dobradura, escultura, modelagem, instalação, vídeo, fotografia etc.), fazendo uso sustentável de materiais, instrumentos, recursos e técnicas convencionais e não convencionais.">
+                <label for="EF15AR04">EF15AR04 – Experimentar diferentes formas de expressão artística (desenho, pintura, colagem, quadrinhos, dobradura, escultura, modelagem, instalação, vídeo, fotografia etc.), fazendo uso sustentável de materiais, instrumentos, recursos e técnicas convencionais e não convencionais.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF15AR05" value="EF15AR05 – Experimentar a criação em artes visuais de modo individual, coletivo e colaborativo, explorando diferentes espaços da escola e da comunidade.">
+                <label for="EF15AR05">EF15AR05 – Experimentar a criação em artes visuais de modo individual, coletivo e colaborativo, explorando diferentes espaços da escola e da comunidade.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF15AR06" value="EF15AR06 – Dialogar sobre a sua criação e as dos colegas, para alcançar sentidos plurais.">
+                <label for="EF15AR06">EF15AR06 – Dialogar sobre a sua criação e as dos colegas, para alcançar sentidos plurais.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF15AR07" value="EF15AR07 – Reconhecer algumas categorias do sistema das artes visuais (museus, galerias, instituições, artistas, artesãos, curadores etc.).">
+                <label for="EF15AR07">EF15AR07 – Reconhecer algumas categorias do sistema das artes visuais (museus, galerias, instituições, artistas, artesãos, curadores etc.).</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">💃 Dança</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF15AR08" value="EF15AR08 – Experimentar e apreciar formas distintas de manifestações da dança presentes em diferentes contextos, cultivando a percepção, o imaginário, a capacidade de simbolizar e o repertório corporal.">
+                <label for="EF15AR08">EF15AR08 – Experimentar e apreciar formas distintas de manifestações da dança presentes em diferentes contextos, cultivando a percepção, o imaginário, a capacidade de simbolizar e o repertório corporal.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF15AR09" value="EF15AR09 – Estabelecer relações entre as partes do corpo e destas com o todo corporal na construção do movimento dançado.">
+                <label for="EF15AR09">EF15AR09 – Estabelecer relações entre as partes do corpo e destas com o todo corporal na construção do movimento dançado.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF15AR10" value="EF15AR10 – Experimentar diferentes formas de orientação no espaço (deslocamentos, planos, direções, caminhos etc.) e ritmos de movimento (lento, moderado e rápido) na construção do movimento dançado.">
+                <label for="EF15AR10">EF15AR10 – Experimentar diferentes formas de orientação no espaço (deslocamentos, planos, direções, caminhos etc.) e ritmos de movimento (lento, moderado e rápido) na construção do movimento dançado.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF15AR11" value="EF15AR11 – Criar e improvisar movimentos dançados de modo individual, coletivo e colaborativo, considerando os aspectos estruturais, dinâmicos e expressivos dos elementos constitutivos do movimento, com base nos códigos de dança.">
+                <label for="EF15AR11">EF15AR11 – Criar e improvisar movimentos dançados de modo individual, coletivo e colaborativo, considerando os aspectos estruturais, dinâmicos e expressivos dos elementos constitutivos do movimento, com base nos códigos de dança.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF15AR12" value="EF15AR12 – Discutir, com respeito e sem preconceito, as experiências pessoais e coletivas em dança vivenciadas na escola, como fonte para a construção de vocabulários e repertórios próprios.">
+                <label for="EF15AR12">EF15AR12 – Discutir, com respeito e sem preconceito, as experiências pessoais e coletivas em dança vivenciadas na escola, como fonte para a construção de vocabulários e repertórios próprios.</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">🎵 Música</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF15AR13" value="EF15AR13 – Identificar e apreciar criticamente diversas formas e gêneros de expressão musical, reconhecendo e analisando os usos e as funções da música em diversos contextos de circulação, em especial, aqueles da vida cotidiana.">
+                <label for="EF15AR13">EF15AR13 – Identificar e apreciar criticamente diversas formas e gêneros de expressão musical, reconhecendo e analisando os usos e as funções da música em diversos contextos de circulação, em especial, aqueles da vida cotidiana.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF15AR14" value="EF15AR14 – Perceber e explorar os elementos constitutivos da música (altura, intensidade, timbre, melodia, ritmo etc.), por meio de jogos, brincadeiras, canções e práticas diversas de composição/criação, execução e apreciação musical.">
+                <label for="EF15AR14">EF15AR14 – Perceber e explorar os elementos constitutivos da música (altura, intensidade, timbre, melodia, ritmo etc.), por meio de jogos, brincadeiras, canções e práticas diversas de composição/criação, execução e apreciação musical.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF15AR15" value="EF15AR15 – Explorar fontes sonoras diversas, como as existentes no próprio corpo (palmas, voz, percussão corporal), na natureza e em objetos cotidianos, reconhecendo os elementos constitutivos da música e as características de instrumentos musicais variados.">
+                <label for="EF15AR15">EF15AR15 – Explorar fontes sonoras diversas, como as existentes no próprio corpo (palmas, voz, percussão corporal), na natureza e em objetos cotidianos, reconhecendo os elementos constitutivos da música e as características de instrumentos musicais variados.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF15AR16" value="EF15AR16 – Explorar diferentes formas de registro musical não convencional (representação gráfica de sons, partituras criativas etc.), bem como procedimentos e técnicas de registro em áudio e audiovisual, e reconhecer a notação musical convencional.">
+                <label for="EF15AR16">EF15AR16 – Explorar diferentes formas de registro musical não convencional (representação gráfica de sons, partituras criativas etc.), bem como procedimentos e técnicas de registro em áudio e audiovisual, e reconhecer a notação musical convencional.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF15AR17" value="EF15AR17 – Experimentar improvisações, composições e sonorização de histórias, entre outros, utilizando vozes, sons corporais e/ou instrumentos musicais convencionais ou não convencionais, de modo individual, coletivo e colaborativo.">
+                <label for="EF15AR17">EF15AR17 – Experimentar improvisações, composições e sonorização de histórias, entre outros, utilizando vozes, sons corporais e/ou instrumentos musicais convencionais ou não convencionais, de modo individual, coletivo e colaborativo.</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="habilidadesReligioso" class="hidden">
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">🧍 Identidade e Alteridade</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02ER01" value="EF02ER01 – Reconhecer os diferentes espaços de convivência.">
+                <label for="EF02ER01">EF02ER01 – Reconhecer os diferentes espaços de convivência.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02ER02" value="EF02ER02 – Identificar costumes, crenças e formas diversas de viver em variados ambientes de convivência.">
+                <label for="EF02ER02">EF02ER02 – Identificar costumes, crenças e formas diversas de viver em variados ambientes de convivência.</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">📝 Memórias e símbolos</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02ER03" value="EF02ER03 – Identificar e preservar diferentes formas de registro das memórias pessoais, familiares e escolares.">
+                <label for="EF02ER03">EF02ER03 – Identificar e preservar diferentes formas de registro das memórias pessoais, familiares e escolares.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02ER04" value="EF02ER04 – Identificar sinais e símbolos presentes nos variados espaços de convivência.">
+                <label for="EF02ER04">EF02ER04 – Identificar sinais e símbolos presentes nos variados espaços de convivência.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02ER05" value="EF02ER05 – Identificar, distinguir e respeitar símbolos religiosos de distintas manifestações, tradições e instituições religiosas.">
+                <label for="EF02ER05">EF02ER05 – Identificar, distinguir e respeitar símbolos religiosos de distintas manifestações, tradições e instituições religiosas.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02ER06" value="EF02ER06 – Exemplificar alimentos considerados sagrados por diferentes culturas, tradições e expressões religiosas.">
+                <label for="EF02ER06">EF02ER06 – Exemplificar alimentos considerados sagrados por diferentes culturas, tradições e expressões religiosas.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02ER07" value="EF02ER07 – Identificar significados atribuídos a alimentos em diferentes manifestações e tradições religiosas.">
+                <label for="EF02ER07">EF02ER07 – Identificar significados atribuídos a alimentos em diferentes manifestações e tradições religiosas.</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">🤝 Convivência e valores</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02ER08" value="EF02ER08 – Desenvolver atitudes de cooperação, cuidado e preservação dos ambientes sociais, culturais e naturais de convivência.">
+                <label for="EF02ER08">EF02ER08 – Desenvolver atitudes de cooperação, cuidado e preservação dos ambientes sociais, culturais e naturais de convivência.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02ER09" value="EF02ER09 – Valorizar a família, percebendo as diferentes formas de constituição e pertencimento.">
+                <label for="EF02ER09">EF02ER09 – Valorizar a família, percebendo as diferentes formas de constituição e pertencimento.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02ER10" value="EF02ER10 – Identificar e respeitar costumes, crenças e formas de viver em variados ambientes de convivência, com colegas, familiares, pessoas idosas, etc.">
+                <label for="EF02ER10">EF02ER10 – Identificar e respeitar costumes, crenças e formas de viver em variados ambientes de convivência, com colegas, familiares, pessoas idosas, etc.</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="habilidade-group">
+            <div class="habilidade-group-title">🌐 Diversidade cultural e religiosa</div>
+            <div class="habilidade-group-options">
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02ER11" value="EF02ER11 – Reconhecer e respeitar a diversidade de formas de vida e manifestações culturais e religiosas presentes em sua comunidade.">
+                <label for="EF02ER11">EF02ER11 – Reconhecer e respeitar a diversidade de formas de vida e manifestações culturais e religiosas presentes em sua comunidade.</label>
+              </div>
+              <div class="habilidade-option">
+                <input type="radio" name="habilidade" id="EF02ER12" value="EF02ER12 – Identificar e valorizar as diferentes expressões religiosas e culturais presentes no Brasil e no mundo.">
+                <label for="EF02ER12">EF02ER12 – Identificar e valorizar as diferentes expressões religiosas e culturais presentes no Brasil e no mundo.</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <select id="habilidade" class="hidden"></select>
+        <button onclick="mostrarInputNovo('habilidade')">➕ Adicionar nova habilidade</button>
+        <div class="input-extra" id="inputExtra-habilidade"></div>
+      </div>
+    </div>
+
+    <div id="selecao-objeto" class="card hidden">
+      <div class="card-header">
+        <div class="card-icon">📖</div>
+        <h2 class="card-title">Objeto do Conhecimento</h2>
+      </div>
+      <button onclick="mostrarObjeto()">Selecionar Objeto</button>
+      <div id="objetoContainer" class="hidden select-container">
+        <select id="objeto"></select>
+        <button onclick="mostrarInputNovo('objeto')">➕ Adicionar novo objeto</button>
+        <div class="input-extra" id="inputExtra-objeto"></div>
+      </div>
+    </div>
+
+    <div id="selecao-procedimento" class="card hidden">
+      <div class="card-header">
+        <div class="card-icon">🛠️</div>
+        <h2 class="card-title">Procedimentos Metodológicos</h2>
+      </div>
+      <button onclick="mostrarProcedimento()">Selecionar Procedimento</button>
+      <div id="procedimentoContainer" class="hidden select-container">
+        <select id="procedimento"></select>
+        <button onclick="mostrarInputNovo('procedimento')">➕ Adicionar novo procedimento</button>
+        <div class="input-extra" id="inputExtra-procedimento"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">📋</div>
+        <h2 class="card-title">Atividades Realizadas</h2>
+      </div>
+      <textarea id="atividades" rows="4" placeholder="Descreva as atividades realizadas em aula..."></textarea>
+    </div>
+
+    <button onclick="gerarTexto()" style="background-color: var(--success-color);">✨ Gerar Texto</button>
+    
+    <div class="card output" id="resultado"></div>
+  </div>
+
+  <script>
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    }
+
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark-mode');
+    }
+
+    document.getElementById('themeToggle').addEventListener('click', toggleDarkMode);
+
+    function formatarData(dataStr) {
+      if (!dataStr) return '';
+      
+      const data = new Date(dataStr);
+      if (isNaN(data.getTime())) return dataStr;
+      
+      const dia = String(data.getDate()).padStart(2, '0');
+      const mes = String(data.getMonth() + 1).padStart(2, '0');
+      const ano = data.getFullYear();
+      
+      return `${dia}/${mes}/${ano}`;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const dataInput = document.getElementById('data');
+
+      const hoje = new Date();
+      const ano = hoje.getFullYear();
+      const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+      const dia = String(hoje.getDate()).padStart(2, '0');
+      dataInput.value = `${ano}-${mes}-${dia}`;
+    });
+
+    const habilidadesPorDisciplina = {
+      'Língua Portuguesa': [
+        'EF15LP03 - Identificar efeitos de sentido decorrentes do uso da pontuação e de outras notações.',
+        'EF04LP01 - Localizar informações explícitas em textos.'
+      ],
+      'Matemática': [
+        'EF03MA07 - Resolver e elaborar problemas com as ideias de adição e subtração.',
+        'EF04MA08 - Resolver problemas envolvendo as ideias de multiplicação e divisão.'
+      ],
+      'Ciências': [
+        'EF04CI02 - Investigar a relação entre os sistemas do corpo humano.',
+        'EF03CI03 - Observar e descrever características dos materiais e suas transformações.'
+      ],
+      'Arte': [
+        'EF15AR05 - Experimentar diferentes formas de expressão artística.',
+        'EF04AR04 - Criar composições utilizando elementos visuais variados.'
+      ],
+      'Ensino Religioso': [
+        'EF04ER03 - Identificar diferentes manifestações religiosas e seus significados.',
+        'EF03ER01 - Respeitar a diversidade religiosa.'
+      ]
+    };
+
+    const objetosConhecimentoPorDisciplina = {
+      'Matemática': [
+        '📏 Leitura, escrita e comparação de números naturais até 1000',
+        '📏 Sistema de numeração decimal',
+        '📏 Composição e decomposição de números',
+        '📏 Contagem e estimativa',
+        '📏 Regularidades no sistema numérico',
+        '📏 Dobro, triplo e metade',
+        '📏 Problemas de adição e subtração com diferentes significados',
+        '📏 Problemas envolvendo multiplicação e divisão (introdução)',
+        '📏 Cálculo mental e algoritmos informais',
+        '📏 Estimativas e arredondamentos',
+        
+        '➕ Padrões e sequências (crescentes e decrescentes)',
+        '➕ Expressões numéricas com adição e subtração',
+        '➕ Propriedades das operações',
+        '➕ Problemas com relações de igualdade e desigualdade',
+        '➕ Introdução ao pensamento algébrico',
+        
+        '📐 Figuras planas: identificação e classificação',
+        '📐 Formas geométricas no cotidiano',
+        '📐 Noções de simetria',
+        '📐 Descrição e localização de objetos no espaço',
+        '📐 Posições (em cima, embaixo, ao lado, à frente etc.)',
+        
+        '🧊 Medidas de comprimento com unidades não padronizadas e padronizadas',
+        '🧊 Medidas de massa, tempo e temperatura (exploração inicial)',
+        '🧊 Leitura de horas inteiras e meias horas',
+        '🧊 Uso de instrumentos de medição',
+        '🧊 Estimativas e comparações de medidas',
+        
+        '📊 Leitura e interpretação de dados em tabelas e gráficos simples',
+        '📊 Coleta de dados',
+        '📊 Organização e registro de informações',
+        '📊 Noções iniciais de chance e probabilidade'
+      ],
+      
+      'Língua Portuguesa': [
+        '📖 Leitura de diferentes gêneros textuais',
+        '📖 Estratégias de antecipação e inferência',
+        '📖 Leitura com fluência',
+        '📖 Compreensão literal e inferencial',
+        '📖 Leitura de imagens, gráficos e sinais',
+        '📖 Uso do conhecimento prévio para interpretação',
+        '📖 Identificação de elementos narrativos',
+        '📖 Opinião sobre textos lidos',
+        
+        '📝 Escrita de pequenos textos narrativos e descritivos',
+        '📝 Planejamento, escrita e revisão textual',
+        '📝 Organização de ideias (início, meio e fim)',
+        '📝 Uso da pontuação básica',
+        '📝 Escrita com coerência e coesão',
+        '📝 Reescrita e produção coletiva',
+        '📝 Uso adequado de letras maiúsculas e minúsculas',
+        
+        '💬 Participação em conversas e apresentações',
+        '💬 Escuta atenta e turnos de fala',
+        '💬 Relato de experiências',
+        '💬 Leitura oral com entonação adequada',
+        '💬 Reconto de histórias',
+        '💬 Uso adequado da linguagem oral',
+        '💬 Debate com respeito e argumentação',
+        
+        '✍️ Ortografia: uso de letras e sons',
+        '✍️ Segmentação de palavras e frases',
+        '✍️ Pontuação básica',
+        '✍️ Classes de palavras básicas',
+        '✍️ Uso do dicionário',
+        '✍️ Formação de palavras',
+        '✍️ Concordância verbal e nominal simples',
+        '✍️ Sinônimos e antônimos',
+        '✍️ Sentido das palavras no contexto'
+      ],
+      
+      'Ciências': [
+
+        '🧬 Características dos seres vivos',
+        '🧬 Plantas: partes, funções e necessidades vitais',
+        '🧬 Animais: habitat, alimentação, desenvolvimento',
+        '🧬 Relação dos seres vivos com o ambiente',
+        '🧬 Cuidados com o ambiente',
+        
+
+        '🔎 Materiais: tipos, usos e propriedades',
+        '🔎 Transformações dos materiais',
+        '🔎 Luz, sombra e reflexão',
+        '🔎 Calor e aquecimento de materiais',
+        
+        '🌎 Movimento aparente do Sol',
+        '🌎 Sombra e luminosidade',
+        '🌎 Superfícies e absorção de calor',
+        
+        '🧼 Higiene pessoal e coletiva',
+        '🧼 Hábitos saudáveis',
+        '🧼 Prevenção de acidentes',
+        '🧼 Sinais vitais e cuidados com o corpo'
+      ],
+      
+      'Arte': [
+
+        '🎨 Elementos visuais da linguagem: ponto, linha, forma, cor, textura',
+        '🎨 Repertório visual do cotidiano e artístico',
+        '🎨 Técnicas e materiais diversos',
+        '🎨 Produção artística individual e coletiva',
+        '🎨 Fruição e apreciação de obras',
+        
+
+        '💃 Elementos do movimento: tempo, espaço, peso e fluência',
+        '💃 Criação coreográfica',
+        '💃 Expressão corporal',
+        '💃 Danças culturais e populares',
+        '💃 Interação e respeito em práticas coletivas',
+        
+
+        '🎭 Jogos de faz de conta e dramatizações',
+        '🎭 Personagens e histórias',
+        '🎭 Expressão de sentimentos e ideias',
+        '🎭 Uso do corpo e da voz',
+        '🎭 Espaço cênico',
+        
+
+        '🎵 Sons do corpo e da natureza',
+        '🎵 Instrumentos convencionais e alternativos',
+        '🎵 Timbres, ritmos e melodias',
+        '🎵 Canções do repertório infantil e popular',
+        '🎵 Criação e experimentação sonora'
+      ],
+      
+      'Ensino Religioso': [
+
+        '🧍 Ambientes de convivência',
+        '🧍 Relações familiares e sociais',
+        '🧍 Respeito à diversidade',
+        '🧍 Formas de pertencimento',
+        
+
+        '🗂️ Símbolos religiosos e culturais',
+        '🗂️ Datas comemorativas e festas religiosas',
+        '🗂️ Significados dos alimentos sagrados',
+        '🗂️ Objetos simbólicos e rituais',
+        
+
+        '🫱 Cooperação, solidariedade e respeito',
+        '🫱 Cuidado com a vida e o meio ambiente',
+        '🫱 Valores compartilhados entre religiões',
+        '🫱 Convivência pacífica e diálogo',
+        
+        '🌐 Tradições religiosas do Brasil e do mundo',
+        '🌐 Cultura e religiosidade em diferentes contextos',
+        '🌐 Respeito às diferentes expressões religiosas',
+        '🌐 Patrimônio cultural e religioso'
+      ]
+    };
+
+    const procedimentosPorDisciplina = {
+      'Matemática': [
+
+        '🔢 Resolução de situações-problema com operações básicas',
+        '🔢 Desenvolvimento de estratégias próprias de resolução',
+        '🔢 Interpretação e resolução de desafios matemáticos',
+        
+        '🎲 Jogos matemáticos para contagem e operações',
+        '🎲 Atividades lúdicas com números e quantidades',
+        '🎲 Desafios e competições matemáticas',
+        
+        '🧮 Uso de material dourado e ábaco',
+        '🧮 Manipulação de blocos lógicos',
+        '🧮 Atividades com materiais concretos diversos',
+        
+        '💰 Atividades envolvendo sistema monetário',
+        '💰 Situações práticas de medição e contagem',
+        '💰 Problemas contextualizados do dia a dia',
+        
+        '👥 Atividades em grupo para troca de estratégias',
+        '👥 Resolução coletiva de problemas',
+        '👥 Jogos e desafios em equipe'
+      ],
+      
+      'Língua Portuguesa': [
+
+        '📖 Leitura compartilhada de textos diversos',
+        '📖 Interpretação textual coletiva',
+        '📖 Roda de leitura e discussão',
+        
+        '✍️ Produção de diferentes gêneros textuais',
+        '✍️ Reescrita e revisão de textos',
+        '✍️ Atividades de escrita criativa',
+        
+        '🎯 Jogos de alfabetização e letramento',
+        '🎯 Brincadeiras com rimas e palavras',
+        '🎯 Atividades de consciência fonológica',
+        
+        '📝 Estudo contextualizado da gramática',
+        '📝 Exercícios de ortografia',
+        '📝 Análise de aspectos linguísticos',
+        
+        '📚 Desenvolvimento de projetos literários',
+        '📚 Contação de histórias',
+        '📚 Atividades de incentivo à leitura'
+      ],
+      
+      'Ciências': [
+
+        '🔬 Realização de experimentos simples',
+        '🔬 Atividades práticas de observação',
+        '🔬 Registro de resultados experimentais',
+        
+        '🌱 Observação de fenômenos naturais',
+        '🌱 Estudo do meio ambiente local',
+        '🌱 Atividades de campo',
+        
+        '🎥 Apresentação de vídeos educativos',
+        '🎥 Uso de imagens e maquetes',
+        '🎥 Demonstrações visuais de conceitos',
+        
+        '💭 Debates sobre temas científicos',
+        '💭 Rodas de conversa investigativas',
+        '💭 Formulação de hipóteses',
+        
+        '🌍 Relação com o cotidiano',
+        '🌍 Estudos de caso práticos',
+        '🌍 Projetos interdisciplinares'
+      ],
+      
+      'Arte': [
+        '🎨 Experimentação de técnicas diversas',
+        '🎨 Uso de materiais variados',
+        '🎨 Criação artística livre',
+        
+        '🖼️ Observação de obras de arte',
+        '🖼️ Análise de diferentes estilos',
+        '🖼️ Contextualização histórica',
+        
+        '🎭 Projetos interdisciplinares',
+        '🎭 Integração com outras linguagens',
+        '🎭 Produções temáticas',
+        
+        '👥 Trabalhos em grupo',
+        '👥 Projetos colaborativos',
+        '👥 Exposições coletivas',
+        
+        '💃 Atividades de dança e movimento',
+        '💃 Jogos teatrais',
+        '💃 Experimentação musical'
+      ],
+      
+      'Ensino Religioso': [
+        '🗣️ Rodas de conversa sobre valores',
+        '🗣️ Discussões sobre diversidade',
+        '🗣️ Compartilhamento de experiências',
+        
+        '🌐 Análise de símbolos religiosos',
+        '🌐 Conhecimento de rituais diversos',
+        '🌐 Exploração de tradições culturais',
+        
+        '🎮 Jogos sobre valores e respeito',
+        '🎮 Dinâmicas de grupo',
+        '🎮 Atividades interativas',
+        
+        '🎨 Manifestações culturais locais',
+        '🎨 Projetos de integração',
+        '🎨 Exposições temáticas',
+        
+        '❤️ Trabalho com valores humanos',
+        '❤️ Atividades de empatia',
+        '❤️ Práticas de solidariedade'
+      ]
+    };
+
+    const disciplinaSelect = document.getElementById('disciplina');
+    Object.keys(habilidadesPorDisciplina).forEach(disciplina => {
+      const option = document.createElement('option');
+      option.value = disciplina;
+      option.textContent = disciplina;
+      disciplinaSelect.appendChild(option);
+    });
+
+    function mostrarBotoesSelecionar() {
+      document.getElementById('selecao-habilidade').classList.remove('hidden');
+      document.getElementById('selecao-objeto').classList.remove('hidden');
+      document.getElementById('selecao-procedimento').classList.remove('hidden');
+    }
+
+    function mostrarHabilidades() {
+      const container = document.getElementById('habilidadesContainer');
+      container.classList.remove('hidden');
+      
+      const disciplina = document.getElementById('disciplina').value;
+      
+      if (disciplina === 'Matemática') {
+        document.getElementById('habilidadesMatematica').classList.remove('hidden');
+        document.getElementById('habilidadesPortugues').classList.add('hidden');
+        document.getElementById('habilidadesCiencias').classList.add('hidden');
+        document.getElementById('habilidadesArtes').classList.add('hidden');
+        document.getElementById('habilidadesReligioso').classList.add('hidden');
+        document.getElementById('habilidade').classList.add('hidden');
+      } else if (disciplina === 'Língua Portuguesa') {
+        document.getElementById('habilidadesMatematica').classList.add('hidden');
+        document.getElementById('habilidadesPortugues').classList.remove('hidden');
+        document.getElementById('habilidadesCiencias').classList.add('hidden');
+        document.getElementById('habilidadesArtes').classList.add('hidden');
+        document.getElementById('habilidadesReligioso').classList.add('hidden');
+        document.getElementById('habilidade').classList.add('hidden');
+      } else if (disciplina === 'Ciências') {
+        document.getElementById('habilidadesMatematica').classList.add('hidden');
+        document.getElementById('habilidadesPortugues').classList.add('hidden');
+        document.getElementById('habilidadesCiencias').classList.remove('hidden');
+        document.getElementById('habilidadesArtes').classList.add('hidden');
+        document.getElementById('habilidadesReligioso').classList.add('hidden');
+        document.getElementById('habilidade').classList.add('hidden');
+      } else if (disciplina === 'Arte') {
+        document.getElementById('habilidadesMatematica').classList.add('hidden');
+        document.getElementById('habilidadesPortugues').classList.add('hidden');
+        document.getElementById('habilidadesCiencias').classList.add('hidden');
+        document.getElementById('habilidadesArtes').classList.remove('hidden');
+        document.getElementById('habilidadesReligioso').classList.add('hidden');
+        document.getElementById('habilidade').classList.add('hidden');
+      } else if (disciplina === 'Ensino Religioso') {
+        document.getElementById('habilidadesMatematica').classList.add('hidden');
+        document.getElementById('habilidadesPortugues').classList.add('hidden');
+        document.getElementById('habilidadesCiencias').classList.add('hidden');
+        document.getElementById('habilidadesArtes').classList.add('hidden');
+        document.getElementById('habilidadesReligioso').classList.remove('hidden');
+        document.getElementById('habilidade').classList.add('hidden');
+      } else {
+        document.getElementById('habilidadesMatematica').classList.add('hidden');
+        document.getElementById('habilidadesPortugues').classList.add('hidden');
+        document.getElementById('habilidadesCiencias').classList.add('hidden');
+        document.getElementById('habilidadesArtes').classList.add('hidden');
+        document.getElementById('habilidadesReligioso').classList.add('hidden');
+        document.getElementById('habilidade').classList.remove('hidden');
+        preencherSelect('habilidade', habilidadesPorDisciplina[disciplina] || []);
+      }
+    }
+
+    function mostrarObjeto() {
+      document.getElementById('objetoContainer').classList.remove('hidden');
+      const disciplina = document.getElementById('disciplina').value;
+      preencherSelect('objeto', objetosConhecimentoPorDisciplina[disciplina] || []);
+    }
+
+    function mostrarProcedimento() {
+      document.getElementById('procedimentoContainer').classList.remove('hidden');
+      const disciplina = document.getElementById('disciplina').value;
+      preencherSelect('procedimento', procedimentosPorDisciplina[disciplina] || []);
+    }
+
+    function preencherSelect(id, lista) {
+      const select = document.getElementById(id);
+      select.innerHTML = '';
+      const dadosSalvos = JSON.parse(localStorage.getItem(id)) || [];
+      const opcoes = [...new Set([...lista, ...dadosSalvos])];
+      opcoes.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item;
+        option.textContent = item;
+        select.appendChild(option);
+      });
+    }
+
+    function salvarLocalStorage(id, valor) {
+      const dados = JSON.parse(localStorage.getItem(id)) || [];
+      if (!dados.includes(valor)) {
+        dados.push(valor);
+        localStorage.setItem(id, JSON.stringify(dados));
+      }
+    }
+
+    function mostrarInputNovo(tipo) {
+      const container = document.getElementById(`inputExtra-${tipo}`);
+      container.innerHTML = '';
+
+      const input = document.createElement('textarea');
+      input.placeholder = `Digite um novo ${tipo === 'procedimento' ? 'procedimento' : tipo === 'objeto' ? 'objeto' : 'habilidade'}...`;
+      input.rows = 3;
+      input.style.marginTop = '10px';
+      input.style.width = '100%';
+      input.style.backgroundColor = 'var(--input-bg)';
+      input.style.color = 'var(--text-color)';
+      input.style.borderColor = 'var(--border-color)';
+
+      const buttonGroup = document.createElement('div');
+      buttonGroup.className = 'button-group';
+
+      const botaoSalvar = document.createElement('button');
+      botaoSalvar.textContent = 'Salvar';
+      botaoSalvar.className = 'button-success';
+
+      botaoSalvar.onclick = () => {
+        const valor = input.value.trim();
+        if (valor) {
+          salvarLocalStorage(tipo, valor);
+          if (tipo === 'objeto') mostrarObjeto();
+          else if (tipo === 'procedimento') mostrarProcedimento();
+          else if (tipo === 'habilidade') mostrarHabilidades();
+          document.getElementById(tipo).value = valor;
+          container.innerHTML = '';
+        }
+      };
+
+      const botaoCancelar = document.createElement('button');
+      botaoCancelar.textContent = 'Cancelar';
+      botaoCancelar.className = 'button-secondary';
+
+      botaoCancelar.onclick = () => {
+        container.innerHTML = '';
+      };
+
+      buttonGroup.appendChild(botaoSalvar);
+      buttonGroup.appendChild(botaoCancelar);
+      container.appendChild(input);
+      container.appendChild(buttonGroup);
+    }
+
+    function obterHabilidadeSelecionada() {
+      const disciplina = document.getElementById('disciplina').value;
+      
+      if (disciplina === 'Matemática' || disciplina === 'Língua Portuguesa' || 
+          disciplina === 'Ciências' || disciplina === 'Arte' || 
+          disciplina === 'Ensino Religioso') {
+        const radioSelecionado = document.querySelector('input[name="habilidade"]:checked');
+        return radioSelecionado ? radioSelecionado.value : '';
+      } else {
+        return document.getElementById('habilidade').value;
+      }
+    }
+    function gerarTexto() {
+      const dataInput = document.getElementById('data').value;
+      const data = formatarData(dataInput);
+      const disciplina = document.getElementById('disciplina').value;
+      const objeto = document.getElementById('objeto').value;
+      const habilidade = obterHabilidadeSelecionada();
+      const procedimento = document.getElementById('procedimento').value;
+      const atividades = document.getElementById('atividades').value;
+
+      const objetoSemEmoji = objeto.replace(/[\u{1F300}-\u{1F9FF}]|[\u{1F600}-\u{1F64F}]|[\u{1F680}-\u{1F6FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[\u{1F900}-\u{1F9FF}]|[\u{1F1E0}-\u{1F1FF}]|[\u{1F300}-\u{1F5FF}]|[\u{1F900}-\u{1F9FF}]|[\u{1F600}-\u{1F64F}]|[\u{1F680}-\u{1F6FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[\u{1F900}-\u{1F9FF}]|[\u{1F1E0}-\u{1F1FF}]/gu, '').trim();
+      const procedimentoSemEmoji = procedimento.replace(/[\u{1F300}-\u{1F9FF}]|[\u{1F600}-\u{1F64F}]|[\u{1F680}-\u{1F6FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[\u{1F900}-\u{1F9FF}]|[\u{1F1E0}-\u{1F1FF}]|[\u{1F300}-\u{1F5FF}]|[\u{1F900}-\u{1F9FF}]|[\u{1F600}-\u{1F64F}]|[\u{1F680}-\u{1F6FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[\u{1F900}-\u{1F9FF}]|[\u{1F1E0}-\u{1F1FF}]/gu, '').trim();
+
+      const texto = `${data}
+
+Disciplina: ${disciplina}
+
+Objeto do Conhecimento: ${objetoSemEmoji}
+
+Habilidade: ${habilidade}
+
+Procedimentos Metodológicos:
+${procedimentoSemEmoji}
+
+Atividades Realizadas:
+${atividades}`;
+
+      const resultado = document.getElementById('resultado');
+      resultado.innerHTML = '';
+
+      const textareaResultado = document.createElement('textarea');
+      textareaResultado.value = texto;
+      textareaResultado.style.width = '100%';
+      textareaResultado.style.minHeight = '200px';
+      textareaResultado.style.marginBottom = '10px';
+      textareaResultado.style.padding = '10px';
+      textareaResultado.style.backgroundColor = 'var(--input-bg)';
+      textareaResultado.style.color = 'var(--text-color)';
+      textareaResultado.style.border = '1px solid var(--border-color)';
+      textareaResultado.style.borderRadius = 'var(--border-radius)';
+      textareaResultado.style.fontFamily = 'inherit';
+      resultado.appendChild(textareaResultado);
+
+      const botoesContainer = document.createElement('div');
+      botoesContainer.style.display = 'flex';
+      botoesContainer.style.gap = '10px';
+      botoesContainer.style.marginTop = '10px';
+
+      const botaoCopiar = document.createElement('button');
+      botaoCopiar.textContent = 'Copiar';
+      botaoCopiar.onclick = () => {
+        navigator.clipboard.writeText(textareaResultado.value).then(() => {
+          botaoCopiar.textContent = 'Copiado!';
+          setTimeout(() => botaoCopiar.textContent = 'Copiar', 2000);
+        });
+      };
+
+      const botaoSalvar = document.createElement('button');
+      botaoSalvar.textContent = 'Salvar Edições';
+      botaoSalvar.style.backgroundColor = 'var(--success-color)';
+      botaoSalvar.onclick = () => {
+        botaoSalvar.textContent = 'Salvo!';
+        setTimeout(() => botaoSalvar.textContent = 'Salvar Edições', 2000);
+      };
+
+      botoesContainer.appendChild(botaoCopiar);
+      botoesContainer.appendChild(botaoSalvar);
+      resultado.appendChild(botoesContainer);
+    }
+  </script>
+</body>
+</html>
