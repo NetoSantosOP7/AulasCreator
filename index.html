@@ -30,7 +30,10 @@
         <div class="card-icon">🎯</div>
         <h2 class="card-title">Habilidades</h2>
       </div>
-      <button onclick="mostrarHabilidades()">Selecionar Habilidade</button>
+      <div class="button-group">
+        <button onclick="toggleHabilidades()" id="btnToggleHabilidades">🔽 Selecionar Habilidade</button>
+        <button onclick="mostrarInputNovo('habilidade')" class="button-secondary">➕ Nova Habilidade</button>
+      </div>
       <div id="habilidadesContainer" class="hidden select-container">
         <div id="habilidadesMatematica" class="hidden">
           <div class="habilidade-group">
@@ -503,7 +506,7 @@
         </div>
         
         <select id="habilidade" class="hidden"></select>
-        <button onclick="mostrarInputNovo('habilidade')">➕ Adicionar nova habilidade</button>
+        <textarea id="habilidade-selecionada" readonly placeholder="A habilidade selecionada aparecerá aqui..." rows="3"></textarea>
         <div class="input-extra" id="inputExtra-habilidade"></div>
       </div>
     </div>
@@ -513,10 +516,15 @@
         <div class="card-icon">📖</div>
         <h2 class="card-title">Objeto do Conhecimento</h2>
       </div>
-      <button onclick="mostrarObjeto()">Selecionar Objeto</button>
-      <div id="objetoContainer" class="hidden select-container">
-        <select id="objeto"></select>
-        <button onclick="mostrarInputNovo('objeto')">➕ Adicionar novo objeto</button>
+      <div class="objetos-container">
+        <div class="button-group">
+          <button onclick="toggleObjetos()" id="btnToggleObjetos">🔽 Selecionar Objeto</button>
+          <button onclick="mostrarInputNovo('objeto')" class="button-secondary">➕ Novo Objeto</button>
+        </div>
+        <select id="objetosPredefinidos" onchange="selecionarObjeto(this.value)" class="hidden">
+          <option value="">Selecione um objeto do conhecimento ou digite abaixo...</option>
+        </select>
+        <textarea id="objeto" rows="4" placeholder="Descreva o objeto do conhecimento ou selecione acima..."></textarea>
         <div class="input-extra" id="inputExtra-objeto"></div>
       </div>
     </div>
@@ -526,10 +534,27 @@
         <div class="card-icon">🛠️</div>
         <h2 class="card-title">Procedimentos Metodológicos</h2>
       </div>
-      <button onclick="mostrarProcedimento()">Selecionar Procedimento</button>
-      <div id="procedimentoContainer" class="hidden select-container">
-        <select id="procedimento"></select>
-        <button onclick="mostrarInputNovo('procedimento')">➕ Adicionar novo procedimento</button>
+      <div class="procedimentos-container">
+        <div class="button-group">
+          <button onclick="toggleProcedimentos()" id="btnToggleProcedimentos">🔽 Selecionar Procedimento</button>
+          <button onclick="mostrarInputNovo('procedimento')" class="button-secondary">➕ Novo Procedimento</button>
+        </div>
+        <select id="procedimentosPredefinidos" onchange="selecionarProcedimento(this.value)" class="hidden">
+          <option value="">Selecione um procedimento ou digite abaixo...</option>
+          <option value="Leitura de mesa">Leitura de mesa</option>
+          <option value="Explanação do conteúdo que será estudado">Explanação do conteúdo que será estudado</option>
+          <option value="Atividade em sala, no livro didático">Atividade em sala, no livro didático</option>
+          <option value="Atividade para casa, no caderno">Atividade para casa, no caderno</option>
+          <option value="Explicação do conteúdo trabalhado">Explicação do conteúdo trabalhado</option>
+          <option value="Atividades no livro didático, em sala de aula e para casa">Atividades no livro didático, em sala de aula e para casa</option>
+          <option value="Atividades xerocopiadas">Atividades xerocopiadas</option>
+          <option value="Correção das atividades">Correção das atividades</option>
+          <option value="Atividade em sala e para casa">Atividade em sala e para casa</option>
+          <option value="Explanação do tema trabalhado">Explanação do tema trabalhado</option>
+          <option value="Atividade em sala, sobre o assunto estudado">Atividade em sala, sobre o assunto estudado</option>
+          <option value="Atividade extra classe">Atividade extra classe</option>
+        </select>
+        <textarea id="procedimento" rows="4" placeholder="Descreva os procedimentos metodológicos ou selecione acima..."></textarea>
         <div class="input-extra" id="inputExtra-procedimento"></div>
       </div>
     </div>
@@ -539,7 +564,26 @@
         <div class="card-icon">📋</div>
         <h2 class="card-title">Atividades Realizadas</h2>
       </div>
-      <textarea id="atividades" rows="4" placeholder="Descreva as atividades realizadas em aula..."></textarea>
+      <div class="atividades-container">
+        <select id="atividadesPredefinidas" onchange="selecionarAtividade(this.value)">
+          <option value="">Selecione uma atividade predefinida ou digite abaixo...</option>
+          <option value="Leitura">Leitura</option>
+          <option value="Explicação do assunto trabalhado">Explicação do assunto trabalhado</option>
+          <option value="Atividade em sala com o uso do livro">Atividade em sala com o uso do livro</option>
+          <option value="Atividade para casa, no caderno">Atividade para casa, no caderno</option>
+          <option value="Folha xerocopiada">Folha xerocopiada</option>
+          <option value="Leitura de mesa">Leitura de mesa</option>
+          <option value="Correção das atividades anteriores">Correção das atividades anteriores</option>
+          <option value="Atividade em sala, no livro didático">Atividade em sala, no livro didático</option>
+          <option value="Atividade para casa, na folha xerocopiada">Atividade para casa, na folha xerocopiada</option>
+          <option value="Correção da atividade anterior">Correção da atividade anterior</option>
+          <option value="Atividade na folha xerocopiada, para casa">Atividade na folha xerocopiada, para casa</option>
+          <option value="Explicação do conteúdo">Explicação do conteúdo</option>
+          <option value="Atividade em sala, sobre o tema">Atividade em sala, sobre o tema</option>
+          <option value="Atividade extra sala">Atividade extra sala</option>
+        </select>
+        <textarea id="atividades" rows="4" placeholder="Descreva as atividades realizadas em aula ou selecione acima..."></textarea>
+      </div>
     </div>
 
     <button onclick="gerarTexto()" style="background-color: var(--success-color);">✨ Gerar Texto</button>
@@ -762,116 +806,83 @@
 
     const procedimentosPorDisciplina = {
       'Matemática': [
-
-        '🔢 Resolução de situações-problema com operações básicas',
-        '🔢 Desenvolvimento de estratégias próprias de resolução',
-        '🔢 Interpretação e resolução de desafios matemáticos',
-        
-        '🎲 Jogos matemáticos para contagem e operações',
-        '🎲 Atividades lúdicas com números e quantidades',
-        '🎲 Desafios e competições matemáticas',
-        
-        '🧮 Uso de material dourado e ábaco',
-        '🧮 Manipulação de blocos lógicos',
-        '🧮 Atividades com materiais concretos diversos',
-        
-        '💰 Atividades envolvendo sistema monetário',
-        '💰 Situações práticas de medição e contagem',
-        '💰 Problemas contextualizados do dia a dia',
-        
-        '👥 Atividades em grupo para troca de estratégias',
-        '👥 Resolução coletiva de problemas',
-        '👥 Jogos e desafios em equipe'
+        '📝 Leitura de mesa',
+        '📝 Explanação do conteúdo que será estudado',
+        '📝 Atividade em sala, no livro didático',
+        '📝 Atividade para casa, no caderno',
+        '📝 Explicação do conteúdo trabalhado',
+        '📝 Atividades no livro didático, em sala de aula e para casa',
+        '📝 Atividades xerocopiadas',
+        '📝 Correção das atividades',
+        '📝 Atividade em sala e para casa',
+        '📝 Explanação do tema trabalhado',
+        '📝 Atividade em sala, sobre o assunto estudado',
+        '📝 Atividade extra classe',
+        // ... manter os procedimentos existentes ...
       ],
       
       'Língua Portuguesa': [
-
-        '📖 Leitura compartilhada de textos diversos',
-        '📖 Interpretação textual coletiva',
-        '📖 Roda de leitura e discussão',
-        
-        '✍️ Produção de diferentes gêneros textuais',
-        '✍️ Reescrita e revisão de textos',
-        '✍️ Atividades de escrita criativa',
-        
-        '🎯 Jogos de alfabetização e letramento',
-        '🎯 Brincadeiras com rimas e palavras',
-        '🎯 Atividades de consciência fonológica',
-        
-        '📝 Estudo contextualizado da gramática',
-        '📝 Exercícios de ortografia',
-        '📝 Análise de aspectos linguísticos',
-        
-        '📚 Desenvolvimento de projetos literários',
-        '📚 Contação de histórias',
-        '📚 Atividades de incentivo à leitura'
+        '📝 Leitura de mesa',
+        '📝 Explanação do conteúdo que será estudado',
+        '📝 Atividade em sala, no livro didático',
+        '📝 Atividade para casa, no caderno',
+        '📝 Explicação do conteúdo trabalhado',
+        '📝 Atividades no livro didático, em sala de aula e para casa',
+        '📝 Atividades xerocopiadas',
+        '📝 Correção das atividades',
+        '📝 Atividade em sala e para casa',
+        '📝 Explanação do tema trabalhado',
+        '📝 Atividade em sala, sobre o assunto estudado',
+        '📝 Atividade extra classe',
+        // ... manter os procedimentos existentes ...
       ],
       
       'Ciências': [
-
-        '🔬 Realização de experimentos simples',
-        '🔬 Atividades práticas de observação',
-        '🔬 Registro de resultados experimentais',
-        
-        '🌱 Observação de fenômenos naturais',
-        '🌱 Estudo do meio ambiente local',
-        '🌱 Atividades de campo',
-        
-        '🎥 Apresentação de vídeos educativos',
-        '🎥 Uso de imagens e maquetes',
-        '🎥 Demonstrações visuais de conceitos',
-        
-        '💭 Debates sobre temas científicos',
-        '💭 Rodas de conversa investigativas',
-        '💭 Formulação de hipóteses',
-        
-        '🌍 Relação com o cotidiano',
-        '🌍 Estudos de caso práticos',
-        '🌍 Projetos interdisciplinares'
+        '📝 Leitura de mesa',
+        '📝 Explanação do conteúdo que será estudado',
+        '📝 Atividade em sala, no livro didático',
+        '📝 Atividade para casa, no caderno',
+        '📝 Explicação do conteúdo trabalhado',
+        '📝 Atividades no livro didático, em sala de aula e para casa',
+        '📝 Atividades xerocopiadas',
+        '📝 Correção das atividades',
+        '📝 Atividade em sala e para casa',
+        '📝 Explanação do tema trabalhado',
+        '📝 Atividade em sala, sobre o assunto estudado',
+        '📝 Atividade extra classe',
+        // ... manter os procedimentos existentes ...
       ],
       
       'Arte': [
-        '🎨 Experimentação de técnicas diversas',
-        '🎨 Uso de materiais variados',
-        '🎨 Criação artística livre',
-        
-        '🖼️ Observação de obras de arte',
-        '🖼️ Análise de diferentes estilos',
-        '🖼️ Contextualização histórica',
-        
-        '🎭 Projetos interdisciplinares',
-        '🎭 Integração com outras linguagens',
-        '🎭 Produções temáticas',
-        
-        '👥 Trabalhos em grupo',
-        '👥 Projetos colaborativos',
-        '👥 Exposições coletivas',
-        
-        '💃 Atividades de dança e movimento',
-        '💃 Jogos teatrais',
-        '💃 Experimentação musical'
+        '📝 Leitura de mesa',
+        '📝 Explanação do conteúdo que será estudado',
+        '📝 Atividade em sala, no livro didático',
+        '📝 Atividade para casa, no caderno',
+        '📝 Explicação do conteúdo trabalhado',
+        '📝 Atividades no livro didático, em sala de aula e para casa',
+        '📝 Atividades xerocopiadas',
+        '📝 Correção das atividades',
+        '📝 Atividade em sala e para casa',
+        '📝 Explanação do tema trabalhado',
+        '📝 Atividade em sala, sobre o assunto estudado',
+        '📝 Atividade extra classe',
+        // ... manter os procedimentos existentes ...
       ],
       
       'Ensino Religioso': [
-        '🗣️ Rodas de conversa sobre valores',
-        '🗣️ Discussões sobre diversidade',
-        '🗣️ Compartilhamento de experiências',
-        
-        '🌐 Análise de símbolos religiosos',
-        '🌐 Conhecimento de rituais diversos',
-        '🌐 Exploração de tradições culturais',
-        
-        '🎮 Jogos sobre valores e respeito',
-        '🎮 Dinâmicas de grupo',
-        '🎮 Atividades interativas',
-        
-        '🎨 Manifestações culturais locais',
-        '🎨 Projetos de integração',
-        '🎨 Exposições temáticas',
-        
-        '❤️ Trabalho com valores humanos',
-        '❤️ Atividades de empatia',
-        '❤️ Práticas de solidariedade'
+        '📝 Leitura de mesa',
+        '📝 Explanação do conteúdo que será estudado',
+        '📝 Atividade em sala, no livro didático',
+        '📝 Atividade para casa, no caderno',
+        '📝 Explicação do conteúdo trabalhado',
+        '📝 Atividades no livro didático, em sala de aula e para casa',
+        '📝 Atividades xerocopiadas',
+        '📝 Correção das atividades',
+        '📝 Atividade em sala e para casa',
+        '📝 Explanação do tema trabalhado',
+        '📝 Atividade em sala, sobre o assunto estudado',
+        '📝 Atividade extra classe',
+        // ... manter os procedimentos existentes ...
       ]
     };
 
@@ -884,73 +895,180 @@
     });
 
     function mostrarBotoesSelecionar() {
-      document.getElementById('selecao-habilidade').classList.remove('hidden');
-      document.getElementById('selecao-objeto').classList.remove('hidden');
-      document.getElementById('selecao-procedimento').classList.remove('hidden');
+      const disciplina = document.getElementById('disciplina').value;
+      const selecaoHabilidade = document.getElementById('selecao-habilidade');
+      const selecaoObjeto = document.getElementById('selecao-objeto');
+      const selecaoProcedimento = document.getElementById('selecao-procedimento');
+      
+      if (disciplina) {
+        selecaoHabilidade.classList.remove('hidden');
+        selecaoObjeto.classList.remove('hidden');
+        selecaoProcedimento.classList.remove('hidden');
+        
+        // Mostrar o container específico da disciplina e esconder os outros
+        const containers = ['habilidadesMatematica', 'habilidadesPortugues', 'habilidadesCiencias', 'habilidadesArte', 'habilidadesReligioso'];
+        containers.forEach(id => {
+          const container = document.getElementById(id);
+          if (container) {
+            if (id === `habilidades${disciplina.replace(/\s+/g, '')}`) {
+      container.classList.remove('hidden');
+            } else {
+              container.classList.add('hidden');
+            }
+          }
+        });
+        
+        // Limpar seleção anterior
+        const radios = document.querySelectorAll('input[name="habilidade"]');
+        radios.forEach(radio => radio.checked = false);
+        
+        const habilidadeSelect = document.getElementById('habilidade');
+        if (habilidadeSelect) {
+          habilidadeSelect.value = '';
+        }
+        
+        const habilidadeSelecionada = document.getElementById('habilidade-selecionada');
+        if (habilidadeSelecionada) {
+          habilidadeSelecionada.value = '';
+        }
+
+        // Atualizar objetos do conhecimento baseado na disciplina
+        const objetosSelect = document.getElementById('objetosPredefinidos');
+        objetosSelect.innerHTML = '<option value="">Selecione um objeto do conhecimento ou digite abaixo...</option>';
+        
+        if (objetosConhecimentoPorDisciplina[disciplina]) {
+          const optgroup = document.createElement('optgroup');
+          optgroup.label = disciplina;
+          objetosConhecimentoPorDisciplina[disciplina].forEach(objeto => {
+            const option = document.createElement('option');
+            option.value = objeto;
+            option.textContent = objeto;
+            optgroup.appendChild(option);
+          });
+          objetosSelect.appendChild(optgroup);
+        }
+
+        // Adicionar objetos salvos do localStorage
+        const objetosSalvos = JSON.parse(localStorage.getItem('objetosPersonalizados') || '[]');
+        if (objetosSalvos.length > 0) {
+          const optgroup = document.createElement('optgroup');
+          optgroup.label = 'Meus Objetos';
+          objetosSalvos.forEach(objeto => {
+            const option = document.createElement('option');
+            option.value = objeto;
+            option.textContent = objeto;
+            optgroup.appendChild(option);
+          });
+          objetosSelect.appendChild(optgroup);
+        }
+
+        // Adicionar procedimentos salvos do localStorage
+        const procedimentosSalvos = JSON.parse(localStorage.getItem('procedimentosPersonalizados') || '[]');
+        const procedimentosSelect = document.getElementById('procedimentosPredefinidos');
+        if (procedimentosSalvos.length > 0) {
+          const optgroup = document.createElement('optgroup');
+          optgroup.label = 'Meus Procedimentos';
+          procedimentosSalvos.forEach(proc => {
+            const option = document.createElement('option');
+            option.value = proc;
+            option.textContent = proc;
+            optgroup.appendChild(option);
+          });
+          procedimentosSelect.appendChild(optgroup);
+        }
+      }
     }
 
-    function mostrarHabilidades() {
+    function toggleHabilidades() {
       const container = document.getElementById('habilidadesContainer');
-      container.classList.remove('hidden');
+      const btn = document.getElementById('btnToggleHabilidades');
+      const isHidden = container.classList.contains('hidden');
       
+      // Primeiro, vamos atualizar o estado do botão e container
+      if (isHidden) {
+        container.classList.remove('hidden');
+        btn.textContent = '🔼 Minimizar Lista';
+      } else {
+        container.classList.add('hidden');
+        btn.textContent = '🔽 Selecionar Habilidade';
+        // Esconder todas as listas ao minimizar
+        document.getElementById('habilidadesMatematica').classList.add('hidden');
+        document.getElementById('habilidadesPortugues').classList.add('hidden');
+        document.getElementById('habilidadesCiencias').classList.add('hidden');
+        document.getElementById('habilidadesArtes').classList.add('hidden');
+        document.getElementById('habilidadesReligioso').classList.add('hidden');
+        document.getElementById('habilidade').classList.add('hidden');
+        return;
+      }
+      
+      // Se estamos expandindo, mostrar as habilidades apropriadas
       const disciplina = document.getElementById('disciplina').value;
       
-      if (disciplina === 'Matemática') {
-        document.getElementById('habilidadesMatematica').classList.remove('hidden');
-        document.getElementById('habilidadesPortugues').classList.add('hidden');
+      // Esconder todas as listas primeiro
+        document.getElementById('habilidadesMatematica').classList.add('hidden');
+      document.getElementById('habilidadesPortugues').classList.add('hidden');
         document.getElementById('habilidadesCiencias').classList.add('hidden');
         document.getElementById('habilidadesArtes').classList.add('hidden');
         document.getElementById('habilidadesReligioso').classList.add('hidden');
         document.getElementById('habilidade').classList.add('hidden');
-      } else if (disciplina === 'Língua Portuguesa') {
-        document.getElementById('habilidadesMatematica').classList.add('hidden');
-        document.getElementById('habilidadesPortugues').classList.remove('hidden');
-        document.getElementById('habilidadesCiencias').classList.add('hidden');
-        document.getElementById('habilidadesArtes').classList.add('hidden');
-        document.getElementById('habilidadesReligioso').classList.add('hidden');
-        document.getElementById('habilidade').classList.add('hidden');
-      } else if (disciplina === 'Ciências') {
-        document.getElementById('habilidadesMatematica').classList.add('hidden');
-        document.getElementById('habilidadesPortugues').classList.add('hidden');
+      
+      // Mostrar apenas a lista correspondente à disciplina selecionada
+      switch(disciplina) {
+        case 'Matemática':
+          document.getElementById('habilidadesMatematica').classList.remove('hidden');
+          break;
+        case 'Língua Portuguesa':
+          document.getElementById('habilidadesPortugues').classList.remove('hidden');
+          break;
+        case 'Ciências':
         document.getElementById('habilidadesCiencias').classList.remove('hidden');
-        document.getElementById('habilidadesArtes').classList.add('hidden');
-        document.getElementById('habilidadesReligioso').classList.add('hidden');
-        document.getElementById('habilidade').classList.add('hidden');
-      } else if (disciplina === 'Arte') {
-        document.getElementById('habilidadesMatematica').classList.add('hidden');
-        document.getElementById('habilidadesPortugues').classList.add('hidden');
-        document.getElementById('habilidadesCiencias').classList.add('hidden');
+          break;
+        case 'Arte':
         document.getElementById('habilidadesArtes').classList.remove('hidden');
-        document.getElementById('habilidadesReligioso').classList.add('hidden');
-        document.getElementById('habilidade').classList.add('hidden');
-      } else if (disciplina === 'Ensino Religioso') {
-        document.getElementById('habilidadesMatematica').classList.add('hidden');
-        document.getElementById('habilidadesPortugues').classList.add('hidden');
-        document.getElementById('habilidadesCiencias').classList.add('hidden');
-        document.getElementById('habilidadesArtes').classList.add('hidden');
+          break;
+        case 'Ensino Religioso':
         document.getElementById('habilidadesReligioso').classList.remove('hidden');
-        document.getElementById('habilidade').classList.add('hidden');
-      } else {
-        document.getElementById('habilidadesMatematica').classList.add('hidden');
-        document.getElementById('habilidadesPortugues').classList.add('hidden');
-        document.getElementById('habilidadesCiencias').classList.add('hidden');
-        document.getElementById('habilidadesArtes').classList.add('hidden');
-        document.getElementById('habilidadesReligioso').classList.add('hidden');
+          break;
+        default:
         document.getElementById('habilidade').classList.remove('hidden');
         preencherSelect('habilidade', habilidadesPorDisciplina[disciplina] || []);
       }
     }
 
+    function toggleObjetos() {
+      const select = document.getElementById('objetosPredefinidos');
+      const btn = document.getElementById('btnToggleObjetos');
+      const isHidden = select.classList.contains('hidden');
+      
+      if (isHidden) {
+        select.classList.remove('hidden');
+        btn.textContent = '🔼 Minimizar Lista';
+      } else {
+        select.classList.add('hidden');
+        btn.textContent = '🔽 Selecionar Objeto';
+      }
+    }
+
+    function toggleProcedimentos() {
+      const select = document.getElementById('procedimentosPredefinidos');
+      const btn = document.getElementById('btnToggleProcedimentos');
+      const isHidden = select.classList.contains('hidden');
+      
+      if (isHidden) {
+        select.classList.remove('hidden');
+        btn.textContent = '🔼 Minimizar Lista';
+      } else {
+        select.classList.add('hidden');
+        btn.textContent = '🔽 Selecionar Procedimento';
+      }
+    }
+
     function mostrarObjeto() {
-      document.getElementById('objetoContainer').classList.remove('hidden');
-      const disciplina = document.getElementById('disciplina').value;
-      preencherSelect('objeto', objetosConhecimentoPorDisciplina[disciplina] || []);
+      document.getElementById('selecao-objeto').classList.remove('hidden');
     }
 
     function mostrarProcedimento() {
-      document.getElementById('procedimentoContainer').classList.remove('hidden');
-      const disciplina = document.getElementById('disciplina').value;
-      preencherSelect('procedimento', procedimentosPorDisciplina[disciplina] || []);
+      document.getElementById('selecao-procedimento').classList.remove('hidden');
     }
 
     function preencherSelect(id, lista) {
@@ -997,11 +1115,66 @@
       botaoSalvar.onclick = () => {
         const valor = input.value.trim();
         if (valor) {
+          if (tipo === 'habilidade') {
+            const disciplina = document.getElementById('disciplina').value;
+            const containerHabilidades = document.getElementById(`habilidades${disciplina.replace(/\s+/g, '')}`);
+            
+            if (!containerHabilidades) {
+              console.error('Container de habilidades não encontrado para a disciplina:', disciplina);
+              return;
+            }
+
+            // Encontrar ou criar o grupo "Minhas Habilidades"
+            let grupoMinhasHabilidades = containerHabilidades.querySelector('.habilidade-group:last-child');
+            if (!grupoMinhasHabilidades || !grupoMinhasHabilidades.querySelector('.habilidade-group-title').textContent.includes('Minhas Habilidades')) {
+              grupoMinhasHabilidades = document.createElement('div');
+              grupoMinhasHabilidades.className = 'habilidade-group';
+              grupoMinhasHabilidades.innerHTML = `
+                <div class="habilidade-group-title">🌟 Minhas Habilidades</div>
+                <div class="habilidade-group-options"></div>
+              `;
+              containerHabilidades.appendChild(grupoMinhasHabilidades);
+            }
+
+            const opcoesContainer = grupoMinhasHabilidades.querySelector('.habilidade-group-options');
+            const novoId = `habilidade-${Date.now()}`;
+            
+            const novaHabilidadeDiv = document.createElement('div');
+            novaHabilidadeDiv.className = 'habilidade-option';
+            novaHabilidadeDiv.innerHTML = `
+              <input type="radio" name="habilidade" id="${novoId}" value="${valor}">
+              <label for="${novoId}">${valor}</label>
+            `;
+            
+            opcoesContainer.appendChild(novaHabilidadeDiv);
+
+            // Selecionar a nova habilidade
+            const novoRadio = document.getElementById(novoId);
+            if (novoRadio) {
+              novoRadio.checked = true;
+              // Atualizar o campo de habilidade selecionada
+              const campoHabilidade = document.getElementById('habilidade-selecionada');
+              if (campoHabilidade) {
+                campoHabilidade.value = valor;
+              }
+            }
+
+            // Garantir que o container de habilidades esteja visível
+            containerHabilidades.classList.remove('hidden');
+            document.getElementById('habilidadesContainer').classList.remove('hidden');
+            document.getElementById('btnToggleHabilidades').textContent = '🔼 Minimizar Lista';
+
+          } else {
+            // Lógica existente para objetos e procedimentos
           salvarLocalStorage(tipo, valor);
-          if (tipo === 'objeto') mostrarObjeto();
-          else if (tipo === 'procedimento') mostrarProcedimento();
-          else if (tipo === 'habilidade') mostrarHabilidades();
+            if (tipo === 'objeto') {
+              mostrarObjeto();
           document.getElementById(tipo).value = valor;
+            } else if (tipo === 'procedimento') {
+              mostrarProcedimento();
+              document.getElementById(tipo).value = valor;
+            }
+          }
           container.innerHTML = '';
         }
       };
@@ -1022,16 +1195,63 @@
 
     function obterHabilidadeSelecionada() {
       const disciplina = document.getElementById('disciplina').value;
+      let habilidadeSelecionada = '';
       
       if (disciplina === 'Matemática' || disciplina === 'Língua Portuguesa' || 
           disciplina === 'Ciências' || disciplina === 'Arte' || 
           disciplina === 'Ensino Religioso') {
         const radioSelecionado = document.querySelector('input[name="habilidade"]:checked');
-        return radioSelecionado ? radioSelecionado.value : '';
+        habilidadeSelecionada = radioSelecionado ? radioSelecionado.value : '';
       } else {
-        return document.getElementById('habilidade').value;
+        const habilidadeSelect = document.getElementById('habilidade');
+        habilidadeSelecionada = habilidadeSelect ? habilidadeSelect.value : '';
       }
+      
+      // Atualizar o campo de texto com a habilidade selecionada
+      const campoHabilidade = document.getElementById('habilidade-selecionada');
+      if (campoHabilidade) {
+        campoHabilidade.value = habilidadeSelecionada;
+      }
+      
+      return habilidadeSelecionada;
     }
+
+    // Adicionar evento de change para todos os radio buttons de habilidade
+    document.addEventListener('DOMContentLoaded', function() {
+      const radios = document.querySelectorAll('input[name="habilidade"]');
+      radios.forEach(radio => {
+        radio.addEventListener('change', obterHabilidadeSelecionada);
+      });
+
+      // Adicionar evento para o select de habilidade também
+      const habilidadeSelect = document.getElementById('habilidade');
+      if (habilidadeSelect) {
+        habilidadeSelect.addEventListener('change', obterHabilidadeSelecionada);
+      }
+    });
+
+    // Atualizar o CSS para o novo campo
+    const style = document.createElement('style');
+    style.textContent = `
+      #habilidade-selecionada {
+        margin-top: 15px;
+        width: 100%;
+        padding: 14px 16px;
+        font-size: 15px;
+        border-radius: var(--border-radius);
+        border: 1px solid var(--border-color);
+        background-color: var(--input-bg);
+        color: var(--text-color);
+        resize: vertical;
+      }
+      
+      #habilidade-selecionada:read-only {
+        cursor: default;
+        opacity: 0.9;
+      }
+    `;
+    document.head.appendChild(style);
+
     function gerarTexto() {
       const dataInput = document.getElementById('data').value;
       const data = formatarData(dataInput);
@@ -1040,6 +1260,12 @@
       const habilidade = obterHabilidadeSelecionada();
       const procedimento = document.getElementById('procedimento').value;
       const atividades = document.getElementById('atividades').value;
+
+      // Verificar se todos os campos obrigatórios foram preenchidos
+      if (!data || !disciplina || !objeto || !habilidade || !procedimento || !atividades) {
+        alert('Por favor, preencha todos os campos obrigatórios.');
+        return;
+      }
 
       const objetoSemEmoji = objeto.replace(/[\u{1F300}-\u{1F9FF}]|[\u{1F600}-\u{1F64F}]|[\u{1F680}-\u{1F6FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[\u{1F900}-\u{1F9FF}]|[\u{1F1E0}-\u{1F1FF}]|[\u{1F300}-\u{1F5FF}]|[\u{1F900}-\u{1F9FF}]|[\u{1F600}-\u{1F64F}]|[\u{1F680}-\u{1F6FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[\u{1F900}-\u{1F9FF}]|[\u{1F1E0}-\u{1F1FF}]/gu, '').trim();
       const procedimentoSemEmoji = procedimento.replace(/[\u{1F300}-\u{1F9FF}]|[\u{1F600}-\u{1F64F}]|[\u{1F680}-\u{1F6FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[\u{1F900}-\u{1F9FF}]|[\u{1F1E0}-\u{1F1FF}]|[\u{1F300}-\u{1F5FF}]|[\u{1F900}-\u{1F9FF}]|[\u{1F600}-\u{1F64F}]|[\u{1F680}-\u{1F6FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[\u{1F900}-\u{1F9FF}]|[\u{1F1E0}-\u{1F1FF}]/gu, '').trim();
@@ -1063,6 +1289,7 @@ ${atividades}`;
 
       const textareaResultado = document.createElement('textarea');
       textareaResultado.value = texto;
+      textareaResultado.id = 'texto-resultado';
       textareaResultado.style.width = '100%';
       textareaResultado.style.minHeight = '200px';
       textareaResultado.style.marginBottom = '10px';
@@ -1096,9 +1323,263 @@ ${atividades}`;
         setTimeout(() => botaoSalvar.textContent = 'Salvar Edições', 2000);
       };
 
+      const botaoAdicionarDisciplina = document.createElement('button');
+      botaoAdicionarDisciplina.textContent = '➕ Adicionar Segunda Disciplina';
+      botaoAdicionarDisciplina.style.backgroundColor = 'var(--primary-color)';
+      botaoAdicionarDisciplina.onclick = adicionarSegundaDisciplina;
+
+      const botaoReformatarTexto = document.createElement('button');
+      botaoReformatarTexto.textContent = '📝 Reformatar Texto';
+      botaoReformatarTexto.style.backgroundColor = 'var(--warning-color)';
+      botaoReformatarTexto.onclick = reformatarTexto;
+
       botoesContainer.appendChild(botaoCopiar);
       botoesContainer.appendChild(botaoSalvar);
+      botoesContainer.appendChild(botaoAdicionarDisciplina);
+      botoesContainer.appendChild(botaoReformatarTexto);
       resultado.appendChild(botoesContainer);
+    }
+
+    function reformatarTexto() {
+      const texto = document.getElementById('texto-resultado').value;
+      
+      // Verifica se o texto já está no formato desejado
+      // Procura pelo padrão: Disciplina, seguido de Objeto, seguido de Habilidade,
+      // e depois Disciplina seguida de Procedimentos e Atividades
+      const padraoParte1 = /^Disciplina:.+\n\nObjeto do conhecimento:.+\n\nHabilidade:/;
+      const padraoParte2 = /Procedimentos metodológicos:\n.+\n\nAtividades realizadas:/;
+      
+      if (padraoParte1.test(texto) && padraoParte2.test(texto)) {
+        // Se o texto já está formatado, não faz nada
+        return;
+      }
+
+      const disciplinas = texto.split('-------------------').map(t => t.trim());
+      
+      let parte1 = '';
+      let parte2 = '';
+      
+      disciplinas.forEach(disciplina => {
+        const linhas = disciplina.split('\n');
+        let disciplinaAtual = '';
+        let objeto = '';
+        let habilidade = '';
+        let procedimentos = [];
+        let atividades = [];
+        let emProcedimentos = false;
+        let emAtividades = false;
+        
+        linhas.forEach(linha => {
+          linha = linha.trim();
+          if (linha.startsWith('Disciplina:')) {
+            disciplinaAtual = linha.replace('Disciplina:', '').trim();
+          } else if (linha.startsWith('Objeto do Conhecimento:')) {
+            objeto = linha.replace('Objeto do Conhecimento:', '').trim();
+          } else if (linha.startsWith('Habilidade:')) {
+            habilidade = linha.replace('Habilidade:', '').trim();
+          } else if (linha.startsWith('Procedimentos Metodológicos:')) {
+            emProcedimentos = true;
+            emAtividades = false;
+          } else if (linha.startsWith('Atividades Realizadas:')) {
+            emProcedimentos = false;
+            emAtividades = true;
+          } else if (linha && emProcedimentos) {
+            procedimentos.push(linha);
+          } else if (linha && emAtividades) {
+            atividades.push(linha);
+          }
+        });
+        
+        if (disciplinaAtual && objeto && habilidade) {
+          // Adicionar à primeira parte (Disciplina, Objeto e Habilidade)
+          parte1 += `Disciplina: ${disciplinaAtual}\n\nObjeto do conhecimento: ${objeto}\n\nHabilidade: ${habilidade}\n\n`;
+          
+          // Adicionar à segunda parte (Disciplina, Procedimentos e Atividades)
+          if (procedimentos.length > 0 || atividades.length > 0) {
+            parte2 += `Disciplina: ${disciplinaAtual}\n\nProcedimentos metodológicos:\n${procedimentos.join('\n')}\n\nAtividades realizadas:\n${atividades.join('\n')}\n\n`;
+          }
+        }
+      });
+      
+      const textoFormatado = `${parte1}${parte2}`.trim();
+      if (textoFormatado) {
+        document.getElementById('texto-resultado').value = textoFormatado;
+      }
+    }
+
+    function adicionarSegundaDisciplina() {
+      // Limpar todos os campos exceto a data
+      document.getElementById('disciplina').value = '';
+      document.getElementById('objeto').value = '';
+      document.getElementById('habilidade-selecionada').value = '';
+      document.getElementById('procedimento').value = '';
+      document.getElementById('atividades').value = '';
+
+      // Desmarcar todos os radio buttons
+      const radios = document.querySelectorAll('input[name="habilidade"]');
+      radios.forEach(radio => radio.checked = false);
+
+      // Esconder as seções
+      document.getElementById('selecao-habilidade').classList.add('hidden');
+      document.getElementById('selecao-objeto').classList.add('hidden');
+      document.getElementById('selecao-procedimento').classList.add('hidden');
+
+      // Alterar o botão de gerar texto
+      const botaoGerar = document.querySelector('button[onclick="gerarTexto()"]');
+      botaoGerar.textContent = '✨ Adicionar Segunda Disciplina';
+      botaoGerar.onclick = function() {
+        const textoAtual = document.getElementById('texto-resultado').value;
+        const disciplina = document.getElementById('disciplina').value;
+        const objeto = document.getElementById('objeto').value;
+        const habilidade = obterHabilidadeSelecionada();
+        const procedimento = document.getElementById('procedimento').value;
+        const atividades = document.getElementById('atividades').value;
+
+        if (!disciplina || !objeto || !habilidade || !procedimento || !atividades) {
+          alert('Por favor, preencha todos os campos obrigatórios.');
+          return;
+        }
+
+        const objetoSemEmoji = removerEmojis(objeto);
+        const procedimentoSemEmoji = removerEmojis(procedimento);
+        const disciplinaSemEmoji = removerEmojis(disciplina);
+        const atividadesSemEmoji = removerEmojis(atividades);
+        const habilidadeSemEmoji = removerEmojis(habilidade);
+
+        const novoTexto = `${textoAtual}
+
+-------------------
+
+Disciplina: ${disciplinaSemEmoji}
+
+Objeto do Conhecimento: ${objetoSemEmoji}
+
+Habilidade: ${habilidadeSemEmoji}
+
+Procedimentos Metodológicos:
+${procedimentoSemEmoji}
+
+Atividades Realizadas:
+${atividadesSemEmoji}`;
+
+        document.getElementById('texto-resultado').value = novoTexto;
+
+        // Restaurar o botão para o estado original
+        botaoGerar.textContent = '✨ Gerar Texto';
+        botaoGerar.onclick = gerarTexto;
+      };
+
+      // Rolar a página para o topo
+      window.scrollTo(0, 0);
+    }
+
+    function selecionarAtividade(valor) {
+      if (valor) {
+        const atividadesTextarea = document.getElementById('atividades');
+        const atividadeAtual = atividadesTextarea.value.trim();
+        atividadesTextarea.value = atividadeAtual ? `${atividadeAtual}\n${valor}` : valor;
+      }
+    }
+
+    function removerEmojis(texto) {
+      return texto.replace(/[\u{1F300}-\u{1F9FF}]|[\u{1F600}-\u{1F64F}]|[\u{1F680}-\u{1F6FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[\u{1F900}-\u{1F9FF}]|[\u{1F1E0}-\u{1F1FF}]|[\u{1F300}-\u{1F5FF}]|[\u{1F900}-\u{1F9FF}]|[\u{1F600}-\u{1F64F}]|[\u{1F680}-\u{1F6FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[\u{1F900}-\u{1F9FF}]|[\u{1F1E0}-\u{1F1FF}]/gu, '').trim();
+    }
+
+    function selecionarObjeto(valor) {
+      if (valor) {
+        const objetoTextarea = document.getElementById('objeto');
+        const objetoAtual = objetoTextarea.value.trim();
+        const valorSemEmoji = removerEmojis(valor);
+        objetoTextarea.value = objetoAtual ? `${objetoAtual}\n${valorSemEmoji}` : valorSemEmoji;
+      }
+    }
+
+    function selecionarProcedimento(valor) {
+      if (valor) {
+        const procedimentoTextarea = document.getElementById('procedimento');
+        const procedimentoAtual = procedimentoTextarea.value.trim();
+        procedimentoTextarea.value = procedimentoAtual ? `${procedimentoAtual}\n${valor}` : valor;
+      }
+    }
+
+    function salvarNovoItem(tipo, valor) {
+      if (!valor.trim()) return;
+
+      const chaveStorage = tipo === 'objeto' ? 'objetosPersonalizados' : 'procedimentosPersonalizados';
+      const itensSalvos = JSON.parse(localStorage.getItem(chaveStorage) || '[]');
+      
+      if (!itensSalvos.includes(valor)) {
+        itensSalvos.push(valor);
+        localStorage.setItem(chaveStorage, JSON.stringify(itensSalvos));
+        
+        // Atualizar o select correspondente
+        const select = tipo === 'objeto' ? 'objetosPredefinidos' : 'procedimentosPredefinidos';
+        const elemento = document.getElementById(select);
+        
+        // Verificar se já existe um optgroup para itens personalizados
+        let optgroup = elemento.querySelector('optgroup[label="Meus ' + (tipo === 'objeto' ? 'Objetos' : 'Procedimentos') + '"]');
+        if (!optgroup) {
+          optgroup = document.createElement('optgroup');
+          optgroup.label = 'Meus ' + (tipo === 'objeto' ? 'Objetos' : 'Procedimentos');
+          elemento.appendChild(optgroup);
+        }
+        
+        const option = document.createElement('option');
+        option.value = valor;
+        option.textContent = valor;
+        optgroup.appendChild(option);
+      }
+      
+      // Limpar o input
+      document.getElementById(`inputExtra-${tipo}`).innerHTML = '';
+      
+      // Selecionar o novo item
+      if (tipo === 'objeto') {
+        selecionarObjeto(valor);
+      } else {
+        selecionarProcedimento(valor);
+      }
+    }
+
+    function mostrarInputNovo(tipo) {
+      const container = document.getElementById(`inputExtra-${tipo}`);
+      container.innerHTML = '';
+
+      const input = document.createElement('textarea');
+      input.placeholder = `Digite um novo ${tipo === 'procedimento' ? 'procedimento' : tipo === 'objeto' ? 'objeto' : 'habilidade'}...`;
+      input.rows = 3;
+      input.style.marginTop = '10px';
+      input.style.width = '100%';
+      input.style.backgroundColor = 'var(--input-bg)';
+      input.style.color = 'var(--text-color)';
+      input.style.borderColor = 'var(--border-color)';
+
+      const buttonGroup = document.createElement('div');
+      buttonGroup.className = 'button-group';
+
+      const botaoSalvar = document.createElement('button');
+      botaoSalvar.textContent = 'Salvar';
+      botaoSalvar.className = 'button-success';
+
+      botaoSalvar.onclick = () => {
+        const valor = input.value.trim();
+        if (valor) {
+          salvarNovoItem(tipo, valor);
+        }
+      };
+
+      const botaoCancelar = document.createElement('button');
+      botaoCancelar.textContent = 'Cancelar';
+      botaoCancelar.className = 'button-secondary';
+
+      botaoCancelar.onclick = () => {
+        container.innerHTML = '';
+      };
+
+      buttonGroup.appendChild(botaoSalvar);
+      buttonGroup.appendChild(botaoCancelar);
+      container.appendChild(input);
+      container.appendChild(buttonGroup);
     }
   </script>
 </body>
